@@ -1,4 +1,3 @@
-from mainprogram import mainMenu
 from morse_code import morseCode
 
 
