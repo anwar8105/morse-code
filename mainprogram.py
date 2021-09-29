@@ -16,7 +16,7 @@ def alphaToMorse():
     while True:
         try:
             print('\nEnter alphabets or words')
-            print('To go jump back to main menu enter \'#\'')
+            print('To jump back to main menu enter \'#\'')
             ask = input('\n>> ').lower().strip()
         except KeyboardInterrupt:
             print('Emergency Exit Triggered')
@@ -48,7 +48,7 @@ def morseToAlpha():
     while True:
         try:
             print('\nEnter morse-code separated by , with a space after comma e.g : . _, _ . . .')
-            print('To go jump back to main menu enter \'#\'')
+            print('To jump back to main menu enter \'#\'')
             ask = input('\n>> ').lower().strip()
         except KeyboardInterrupt:
             print('Emergency Exit Triggered')
@@ -82,7 +82,7 @@ def mainMenu():
     while converter:
         print('\n0. Convert alphabets to morse code')
         print('1. Convert morse code to Alphabets')
-        print('Or enter (\'q\' or \'quit\') to exit')
+        print('\nOr enter (\'q\' or \'quit\') to exit')
 
         try:
             option = input('\nEnter your choice : ').lower().strip()
@@ -101,10 +101,10 @@ def mainMenu():
 
 
 print(f"""
-{'=' * 20}
-Hi!
-Welcome, to the morse code converter hope you like it
-{'=' * 20}
+{'=' * 55}
+Hi!, and Welcome, to the morse code converter
+{'=' * 55}
+Select any options from below
 """)
 
 mainMenu()
