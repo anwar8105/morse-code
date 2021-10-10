@@ -1,4 +1,4 @@
-from converters import convertToMorse, convertToAlpha
+from converters import Converter
 from sys import exit
 import string
 
@@ -10,8 +10,8 @@ alphabets = string.ascii_lowercase
 converted_code = []
 
 
-def alphaToMorse():
-    '''Convert alphabets to morse code'''
+def alpha_to_morse():
+    """Convert alphabets to morse code."""
 
     while True:
         try:
@@ -24,8 +24,8 @@ def alphaToMorse():
         else:
             if ask == '#':                              # return to main menu
                 mainMenu()
-            elif not ask in all_punctuations:          # only accept alphabets, not punctuation
-                convertToMorse(converted_code, ask)
+            elif ask not in all_punctuations:          # only accept alphabets, not punctuation
+                Converter.convert_to_morse(converted_code, ask)
                 print('\nHere\'s the Converted Code\n')
                 print(f"letter\t\t|   Morse Code\n{'=' * 30}")
 
@@ -42,8 +42,8 @@ def alphaToMorse():
                 continue
 
 
-def morseToAlpha():
-    '''Convert morse-code into alphabets'''
+def morse_to_alpha():
+    """Convert morse-code into alphabets."""
 
     while True:
         try:
@@ -56,10 +56,10 @@ def morseToAlpha():
         else:
             if ask == '#':  # return to main menu
                 mainMenu()
-            elif not ask in all_punctuations and not ask in alphabets:  # only accept alphabets, not punctuation
+            elif ask not in all_punctuations and ask not in alphabets:  # only accept alphabets, not punctuation
                 lst = list(ask.split(', '))  # split
 
-                convertToAlpha(converted_code, lst)
+                Converter.convert_to_alpha(converted_code, lst)
                 print('\nHere\'s the Converted Code\n')
                 print(f"Morse Code\t|   Letter\n{'=' * 30}")
 
@@ -91,10 +91,10 @@ def mainMenu():
             exit()
         else:
             if option == str(0):
-                alphaToMorse()
+                alpha_to_morse()
             elif option == str(1):
-                morseToAlpha()
-            elif option == 'q' or option == 'quit':
+                morse_to_alpha()
+            elif option in ['q', 'quit']:
                 exit()
             else:
                 continue
